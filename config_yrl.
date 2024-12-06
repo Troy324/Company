@@ -1,20 +1,32 @@
-# Company
 class Company {
-// Поля класса
-private String name;
-    private int yearFounded;
-// Конструктор класса
-public Company(String name, int yearFounded) {
-    this.name = name;
-    this.yearFounded = yearFounded;    }
-    // Метод для получения информации о компании
-    public String getInfo() {
-        return "Компания: " + name + ", Год основания: " + yearFounded;
-    }}
-public class Main {
+    public String name; //название
+    public int persons; //количество сотрудников
+    public int money; // месячный фонд зарплаты
+
+    // метод для инициализации полей объекта
+    public void Initialize(String new_name, int new_persons, int new_money) {
+        name = new_name;
+        persons = new_persons;
+        money = new_money;
+    }
+
+    public void show() {
+        System.out.println("В компании " + name + 
+            " трудятся " + persons + " сотрудников ");
+        System.out.println("Фонд зарплаты: " + money);
+    }
+    // описания других методов – см. пример 3.3 
+}
+
+class Program {
     public static void main(String[] args) {
-        // Создание объекта класса Company
-        Company company1 = new Company("ООО ГАЗПРОМ", 2004);
-        // Вывод информации о компании
-        System.out.println(company1.getInfo());
-    }}
+        // создание объекта
+        Company factory = new Company();
+
+        // инициализация объекта
+        factory.Initialize("ООО ГАЗПРОМ", 10000, 1000000);
+
+        // вывод информации об объекте
+        factory.show();
+    }
+}
